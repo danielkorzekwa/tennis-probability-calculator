@@ -160,7 +160,9 @@ class TennisProbFormulaCalcTest {
   }
 
   @Test def Roger_Federer_vs_Milos_Raonic_23_12_2011 {
-    assertEquals(0.810811, TennisProbFormulaCalc.match3SetProb(0.7354, 0.34), 0.0001)
+    assertEquals(0.8133, TennisProbFormulaCalc.match3SetProb(0.7354, 1 - 0.65924), 0.0001)
+    assertEquals(0.1866, TennisProbFormulaCalc.match3SetProb(0.65924, 1 - 0.7354), 0.0001)
+    assertEquals(1, TennisProbFormulaCalc.match3SetProb(0.7354, 1 - 0.65924) + TennisProbFormulaCalc.match3SetProb(0.65924, 1 - 0.7354), 0.0001)
   }
 
 }
