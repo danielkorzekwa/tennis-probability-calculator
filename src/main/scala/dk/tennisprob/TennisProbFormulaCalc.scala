@@ -1,7 +1,7 @@
 package dk.tennisprob
 
 import scala.Math._
-
+import TennisProbCalc.MatchTypeEnum._
 /**
  * This calculator is based on research paper:
  * Probability Formulas and Statistical Analysis in Tennis, O'Malley, a. James, Journal of Quantitative Analysis in Sports, 2008
@@ -75,30 +75,22 @@ object TennisProbFormulaCalc extends TennisProbCalc {
   }
 
   /**
-   * Calculates probability of winning a tennis three-set match.
+   * Calculates probability of winning a tennis match.
    *
    * @param pointProbOnServe Probability of winning a point when serving
    * @param pointProbOnReceive Probability of winning a point when receiving serve
+   * @param matchType Three or Five set match.
    */
-  def match3SetProb(pointProbOnServe: Double, pointProbOnReceive: Double): Double = {
+  def matchProb(pointProbOnServe: Double, pointProbOnReceive: Double, matchType: MatchTypeEnum): Double = {
     val p = pointProbOnServe
     val q = pointProbOnReceive
     val S = setProb _
-    val prob = pow(S(p, q), 2) * (1 + 2 * (1 - S(p, q)))
-    prob
-  }
 
-  /**
-   * Calculates probability of winning a tennis five-set match.
-   *
-   * @param pointProbOnServe Probability of winning a point when serving
-   * @param pointProbOnReceive Probability of winning a point when receiving serve
-   */
-  def match5SetProb(pointProbOnServe: Double, pointProbOnReceive: Double): Double = {
-    val p = pointProbOnServe
-    val q = pointProbOnReceive
-    val S = setProb _
-    val prob = pow(S(p, q), 3) * (1 + 3 * (1 - S(p, q)) + 6 * pow((1 - S(p, q)), 2))
+    val prob = matchType match {
+      case THREE_SET_MATCH => pow(S(p, q), 2) * (1 + 2 * (1 - S(p, q)))
+      case FIVE_SET_MATCH => pow(S(p, q), 3) * (1 + 3 * (1 - S(p, q)) + 6 * pow((1 - S(p, q)), 2))
+    }
+
     prob
   }
 

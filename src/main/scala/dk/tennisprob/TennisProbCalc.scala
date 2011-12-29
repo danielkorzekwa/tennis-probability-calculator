@@ -1,5 +1,15 @@
 package dk.tennisprob
 
+object TennisProbCalc {
+
+  object MatchTypeEnum extends Enumeration {
+    type MatchTypeEnum = Value
+    val THREE_SET_MATCH, FIVE_SET_MATCH = Value
+  }
+}
+
+import TennisProbCalc.MatchTypeEnum._
+
 trait TennisProbCalc {
 
   /**
@@ -44,19 +54,13 @@ trait TennisProbCalc {
    */
   def setProb(pointProbOnServe: Double, pointProbOnReceive: Double): Double
 
-  /**
-   * Calculates probability of winning a tennis three-set match.
+   /**
+   * Calculates probability of winning a tennis match.
    *
    * @param pointProbOnServe Probability of winning a point when serving
    * @param pointProbOnReceive Probability of winning a point when receiving serve
+   * @param matchType Three or Five set match.
    */
-  def match3SetProb(pointProbOnServe: Double, pointProbOnReceive: Double): Double
-
-  /**
-   * Calculates probability of winning a tennis five-set match.
-   *
-   * @param pointProbOnServe Probability of winning a point when serving
-   * @param pointProbOnReceive Probability of winning a point when receiving serve
-   */
-  def match5SetProb(pointProbOnServe: Double, pointProbOnReceive: Double): Double
+  def matchProb(pointProbOnServe: Double, pointProbOnReceive: Double,matchType:MatchTypeEnum): Double
+  
 }

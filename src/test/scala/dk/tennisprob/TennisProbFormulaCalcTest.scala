@@ -2,6 +2,7 @@ package dk.tennisprob
 
 import org.junit._
 import Assert._
+import TennisProbCalc.MatchTypeEnum._
 
 class TennisProbFormulaCalcTest {
   /**Tests for pointAvgProb*/
@@ -24,11 +25,11 @@ class TennisProbFormulaCalcTest {
 
     assertEquals(0.5, TennisProbFormulaCalc.setProb(0.5, 0.5), 0.0)
 
-    assertEquals(0.5, TennisProbFormulaCalc.match3SetProb(0.5, 0.5), 0.0)
-    assertEquals(0.5, TennisProbFormulaCalc.match3SetProb(0.5, 0.5), 0.0)
+    assertEquals(0.5, TennisProbFormulaCalc.matchProb(0.5, 0.5, THREE_SET_MATCH), 0.0)
+    assertEquals(0.5, TennisProbFormulaCalc.matchProb(0.5, 0.5, THREE_SET_MATCH), 0.0)
 
-    assertEquals(0.5, TennisProbFormulaCalc.match5SetProb(0.5, 0.5), 0.0)
-    assertEquals(0.5, TennisProbFormulaCalc.match5SetProb(0.5, 0.5), 0.0)
+    assertEquals(0.5, TennisProbFormulaCalc.matchProb(0.5, 0.5, FIVE_SET_MATCH), 0.0)
+    assertEquals(0.5, TennisProbFormulaCalc.matchProb(0.5, 0.5, FIVE_SET_MATCH), 0.0)
   }
 
   @Test def tiebreak_probability_serve_receive_1_and_0_5 {
@@ -41,11 +42,11 @@ class TennisProbFormulaCalcTest {
     assertEquals(1, TennisProbFormulaCalc.setProb(1, 0.5), 0.0)
     assertEquals(1, TennisProbFormulaCalc.setProb(0.5, 1), 0.0)
 
-    assertEquals(1, TennisProbFormulaCalc.match3SetProb(1, 0.5), 0.0)
-    assertEquals(1, TennisProbFormulaCalc.match3SetProb(0.5, 1), 0.0)
+    assertEquals(1, TennisProbFormulaCalc.matchProb(1, 0.5, THREE_SET_MATCH), 0.0)
+    assertEquals(1, TennisProbFormulaCalc.matchProb(0.5, 1, THREE_SET_MATCH), 0.0)
 
-    assertEquals(1, TennisProbFormulaCalc.match5SetProb(1, 0.5), 0.0)
-    assertEquals(1, TennisProbFormulaCalc.match5SetProb(0.5, 1), 0.0)
+    assertEquals(1, TennisProbFormulaCalc.matchProb(1, 0.5, FIVE_SET_MATCH), 0.0)
+    assertEquals(1, TennisProbFormulaCalc.matchProb(0.5, 1, FIVE_SET_MATCH), 0.0)
   }
 
   @Test def tiebreak_probability_serve_receive_0_and_0_5 {
@@ -58,11 +59,11 @@ class TennisProbFormulaCalcTest {
     assertEquals(0, TennisProbFormulaCalc.setProb(0, 0.5), 0.0)
     assertEquals(0, TennisProbFormulaCalc.setProb(0.5, 0.0), 0.0)
 
-    assertEquals(0, TennisProbFormulaCalc.match3SetProb(0, 0.5), 0.0)
-    assertEquals(0, TennisProbFormulaCalc.match3SetProb(0.5, 0), 0.0)
+    assertEquals(0, TennisProbFormulaCalc.matchProb(0, 0.5, THREE_SET_MATCH), 0.0)
+    assertEquals(0, TennisProbFormulaCalc.matchProb(0.5, 0, THREE_SET_MATCH), 0.0)
 
-    assertEquals(0, TennisProbFormulaCalc.match5SetProb(0, 0.5), 0.0)
-    assertEquals(0, TennisProbFormulaCalc.match5SetProb(0.5, 0), 0.0)
+    assertEquals(0, TennisProbFormulaCalc.matchProb(0, 0.5, FIVE_SET_MATCH), 0.0)
+    assertEquals(0, TennisProbFormulaCalc.matchProb(0.5, 0, FIVE_SET_MATCH), 0.0)
   }
 
   @Test def tiebreak_probability_serve_receive_0_6_and_0_4 {
@@ -75,11 +76,11 @@ class TennisProbFormulaCalcTest {
     assertEquals(0.5, TennisProbFormulaCalc.setProb(0.6, 0.4), 0.00001)
     assertEquals(0.5, TennisProbFormulaCalc.setProb(0.4, 0.6), 0.0)
 
-    assertEquals(0.5, TennisProbFormulaCalc.match3SetProb(0.6, 0.4), 0.00001)
-    assertEquals(0.5, TennisProbFormulaCalc.match3SetProb(0.4, 0.6), 0.0)
+    assertEquals(0.5, TennisProbFormulaCalc.matchProb(0.6, 0.4, THREE_SET_MATCH), 0.00001)
+    assertEquals(0.5, TennisProbFormulaCalc.matchProb(0.4, 0.6, THREE_SET_MATCH), 0.0)
 
-    assertEquals(0.5, TennisProbFormulaCalc.match5SetProb(0.6, 0.4), 0.00001)
-    assertEquals(0.5, TennisProbFormulaCalc.match5SetProb(0.4, 0.6), 0.0)
+    assertEquals(0.5, TennisProbFormulaCalc.matchProb(0.6, 0.4, FIVE_SET_MATCH), 0.00001)
+    assertEquals(0.5, TennisProbFormulaCalc.matchProb(0.4, 0.6, FIVE_SET_MATCH), 0.0)
 
   }
 
@@ -93,11 +94,11 @@ class TennisProbFormulaCalcTest {
     assertEquals(0.5, TennisProbFormulaCalc.setProb(0.8, 0.2), 0.00001)
     assertEquals(0.5, TennisProbFormulaCalc.setProb(0.2, 0.8), 0.00001)
 
-    assertEquals(0.5, TennisProbFormulaCalc.match3SetProb(0.8, 0.2), 0.00001)
-    assertEquals(0.5, TennisProbFormulaCalc.match3SetProb(0.2, 0.8), 0.00001)
+    assertEquals(0.5, TennisProbFormulaCalc.matchProb(0.8, 0.2, THREE_SET_MATCH), 0.00001)
+    assertEquals(0.5, TennisProbFormulaCalc.matchProb(0.2, 0.8, THREE_SET_MATCH), 0.00001)
 
-    assertEquals(0.5, TennisProbFormulaCalc.match5SetProb(0.8, 0.2), 0.00001)
-    assertEquals(0.5, TennisProbFormulaCalc.match5SetProb(0.2, 0.8), 0.0001)
+    assertEquals(0.5, TennisProbFormulaCalc.matchProb(0.8, 0.2, FIVE_SET_MATCH), 0.00001)
+    assertEquals(0.5, TennisProbFormulaCalc.matchProb(0.2, 0.8, FIVE_SET_MATCH), 0.0001)
   }
 
   @Test def tiebreak_probability_serve_receive_0_4_and_0_3 {
@@ -116,17 +117,17 @@ class TennisProbFormulaCalcTest {
     assertEquals(0.9960, TennisProbFormulaCalc.setProb(0.7, 0.6), 0.0001)
     assertEquals(1, TennisProbFormulaCalc.setProb(0.4, 0.3) + TennisProbFormulaCalc.setProb(0.7, 0.6), 0.00001)
 
-    assertEquals(0.000045, TennisProbFormulaCalc.match3SetProb(0.4, 0.3), 0.0001)
-    assertEquals(0.000045, TennisProbFormulaCalc.match3SetProb(0.3, 0.4), 0.0001)
+    assertEquals(0.000045, TennisProbFormulaCalc.matchProb(0.4, 0.3, THREE_SET_MATCH), 0.0001)
+    assertEquals(0.000045, TennisProbFormulaCalc.matchProb(0.3, 0.4, THREE_SET_MATCH), 0.0001)
     /**opponent winning three-set match prob.*/
-    assertEquals(0.99995, TennisProbFormulaCalc.match3SetProb(0.7, 0.6), 0.0001)
-    assertEquals(1, TennisProbFormulaCalc.match3SetProb(0.4, 0.3) + TennisProbFormulaCalc.match3SetProb(0.7, 0.6), 0.00001)
+    assertEquals(0.99995, TennisProbFormulaCalc.matchProb(0.7, 0.6, THREE_SET_MATCH), 0.0001)
+    assertEquals(1, TennisProbFormulaCalc.matchProb(0.4, 0.3, THREE_SET_MATCH) + TennisProbFormulaCalc.matchProb(0.7, 0.6, THREE_SET_MATCH), 0.00001)
 
-    assertEquals(0.0000005973, TennisProbFormulaCalc.match5SetProb(0.4, 0.3), 0.0001)
-    assertEquals(0.0000005973, TennisProbFormulaCalc.match5SetProb(0.3, 0.4), 0.0001)
+    assertEquals(0.0000005973, TennisProbFormulaCalc.matchProb(0.4, 0.3, FIVE_SET_MATCH), 0.0001)
+    assertEquals(0.0000005973, TennisProbFormulaCalc.matchProb(0.3, 0.4, FIVE_SET_MATCH), 0.0001)
     /**opponent winning five-set match prob.*/
-    assertEquals(0.99999940, TennisProbFormulaCalc.match5SetProb(0.7, 0.6), 0.0001)
-    assertEquals(1, TennisProbFormulaCalc.match5SetProb(0.4, 0.3) + TennisProbFormulaCalc.match5SetProb(0.7, 0.6), 0.00001)
+    assertEquals(0.99999940, TennisProbFormulaCalc.matchProb(0.7, 0.6, FIVE_SET_MATCH), 0.0001)
+    assertEquals(1, TennisProbFormulaCalc.matchProb(0.4, 0.3, FIVE_SET_MATCH) + TennisProbFormulaCalc.matchProb(0.7, 0.6, FIVE_SET_MATCH), 0.00001)
   }
 
   @Test def tiebreak_probability_serve_receive_0_7_and_0_4 {
@@ -145,24 +146,24 @@ class TennisProbFormulaCalcTest {
     assertEquals(0.2051, TennisProbFormulaCalc.setProb(0.6, 0.3), 0.0001)
     assertEquals(1, TennisProbFormulaCalc.setProb(0.7, 0.4) + TennisProbFormulaCalc.setProb(0.3, 0.6), 0.00001)
 
-    assertEquals(0.8910, TennisProbFormulaCalc.match3SetProb(0.7, 0.4), 0.0001)
-    assertEquals(0.8910, TennisProbFormulaCalc.match3SetProb(0.4, 0.7), 0.0001)
+    assertEquals(0.8910, TennisProbFormulaCalc.matchProb(0.7, 0.4, THREE_SET_MATCH), 0.0001)
+    assertEquals(0.8910, TennisProbFormulaCalc.matchProb(0.4, 0.7, THREE_SET_MATCH), 0.0001)
     /**opponent winning three-set match prob.*/
-    assertEquals(0.10898, TennisProbFormulaCalc.match3SetProb(0.6, 0.3), 0.0001)
-    assertEquals(1, TennisProbFormulaCalc.match3SetProb(0.7, 0.4) + TennisProbFormulaCalc.match3SetProb(0.3, 0.6), 0.00001)
+    assertEquals(0.10898, TennisProbFormulaCalc.matchProb(0.6, 0.3, THREE_SET_MATCH), 0.0001)
+    assertEquals(1, TennisProbFormulaCalc.matchProb(0.7, 0.4, THREE_SET_MATCH) + TennisProbFormulaCalc.matchProb(0.3, 0.6, THREE_SET_MATCH), 0.00001)
 
-    assertEquals(0.93805, TennisProbFormulaCalc.match5SetProb(0.7, 0.4), 0.0001)
-    assertEquals(0.93805, TennisProbFormulaCalc.match5SetProb(0.4, 0.7), 0.0001)
+    assertEquals(0.93805, TennisProbFormulaCalc.matchProb(0.7, 0.4, FIVE_SET_MATCH), 0.0001)
+    assertEquals(0.93805, TennisProbFormulaCalc.matchProb(0.4, 0.7, FIVE_SET_MATCH), 0.0001)
     /**opponent winning five-set match prob.*/
-    assertEquals(0.061948, TennisProbFormulaCalc.match5SetProb(0.6, 0.3), 0.0001)
-    assertEquals(1, TennisProbFormulaCalc.match5SetProb(0.7, 0.4) + TennisProbFormulaCalc.match5SetProb(0.3, 0.6), 0.00001)
+    assertEquals(0.061948, TennisProbFormulaCalc.matchProb(0.6, 0.3, FIVE_SET_MATCH), 0.0001)
+    assertEquals(1, TennisProbFormulaCalc.matchProb(0.7, 0.4, FIVE_SET_MATCH) + TennisProbFormulaCalc.matchProb(0.3, 0.6, FIVE_SET_MATCH), 0.00001)
 
   }
 
   @Test def Roger_Federer_vs_Milos_Raonic_23_12_2011 {
-    assertEquals(0.8133, TennisProbFormulaCalc.match3SetProb(0.7354, 1 - 0.65924), 0.0001)
-    assertEquals(0.1866, TennisProbFormulaCalc.match3SetProb(0.65924, 1 - 0.7354), 0.0001)
-    assertEquals(1, TennisProbFormulaCalc.match3SetProb(0.7354, 1 - 0.65924) + TennisProbFormulaCalc.match3SetProb(0.65924, 1 - 0.7354), 0.0001)
+    assertEquals(0.8133, TennisProbFormulaCalc.matchProb(0.7354, 1 - 0.65924, THREE_SET_MATCH), 0.0001)
+    assertEquals(0.1866, TennisProbFormulaCalc.matchProb(0.65924, 1 - 0.7354, THREE_SET_MATCH), 0.0001)
+    assertEquals(1, TennisProbFormulaCalc.matchProb(0.7354, 1 - 0.65924, THREE_SET_MATCH) + TennisProbFormulaCalc.matchProb(0.65924, 1 - 0.7354, THREE_SET_MATCH), 0.0001)
   }
 
 }
