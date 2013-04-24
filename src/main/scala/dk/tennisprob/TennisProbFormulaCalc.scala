@@ -1,6 +1,6 @@
 package dk.tennisprob
 
-import scala.Math._
+import scala.math._
 import TennisProbCalc.MatchTypeEnum._
 /**
  * This calculator is based on research paper:
