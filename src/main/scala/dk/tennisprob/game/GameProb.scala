@@ -1,4 +1,4 @@
-package dk.tennisprob.gameprob
+package dk.tennisprob.game
 
 trait GameProb {
 

@@ -1,7 +1,7 @@
-package dk.tennisprob.gameprob
+package dk.tennisprob.game
 
-import org.junit._
-import Assert._
+import org.junit.Assert.assertEquals
+import org.junit.Test
 
 class GenericGameProbTest {
 
