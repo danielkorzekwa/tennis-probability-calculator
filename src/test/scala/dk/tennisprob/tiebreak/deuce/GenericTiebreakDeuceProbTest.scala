@@ -11,6 +11,7 @@ class GenericTiebreakDeuceProbTest {
   }
 
   @Test def even_chances {
+    assertEquals(0.5, GenericTiebreakDeuceProb.prob(p1AceProb = 0.0, p1PointProb = 0.8, p2AceProb = 0.0, p2PointProb = 0.8), 0.0001)
     assertEquals(0.5, GenericTiebreakDeuceProb.prob(p1AceProb = 0.3, p1PointProb = 0.8, p2AceProb = 0.3, p2PointProb = 0.8), 0.0001)
   }
 
