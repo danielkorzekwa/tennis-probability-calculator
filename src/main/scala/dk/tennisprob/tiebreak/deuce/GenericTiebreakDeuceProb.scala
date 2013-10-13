@@ -1,4 +1,4 @@
-package dk.tennisprob.tiebreakdeuce
+package dk.tennisprob.tiebreak.deuce
 
 import dk.tennisprob.twopointsgame.GenericTwoPointsGameProb
 

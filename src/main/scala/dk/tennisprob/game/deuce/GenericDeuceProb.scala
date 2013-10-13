@@ -1,4 +1,4 @@
-package dk.tennisprob.deuce
+package dk.tennisprob.game.deuce
 
 import scala.math._
 import dk.tennisprob.twopointsgame.GenericTwoPointsGameProb

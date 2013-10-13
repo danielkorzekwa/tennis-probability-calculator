@@ -1,7 +1,7 @@
-package dk.tennisprob.deuce
+package dk.tennisprob.game.deuce
 
-import org.junit._
-import Assert._
+import org.junit.Assert.assertEquals
+import org.junit.Test
 
 class GenericDeuceProbTest {
 

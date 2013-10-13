@@ -1,7 +1,7 @@
 package dk.tennisprob.game
 
 import dk.tennisprob.TennisProbFormulaCalc
-import dk.tennisprob.deuce.GenericDeuceProb
+import dk.tennisprob.game.deuce.GenericDeuceProb
 
 object GenericGameProb extends GameProb {
 

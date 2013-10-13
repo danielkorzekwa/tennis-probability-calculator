@@ -12,7 +12,7 @@ trait TwoPointsGameProb {
   def prob(aceProb: Double, pointProb: Double): Tuple3[Double, Double, Double]
 
   /**
-   * Returns the probability of winning a two points game. Player 1 serves first, followed by player 2
+   * Returns the probability of winning a two points game by player 1. Player 1 serves first, followed by player 2
    *
    * @param p1AceProb Probability of shooting aces by player 1
    * @param p1PointProb Probability of winning a point on serve given not ace by player 1
