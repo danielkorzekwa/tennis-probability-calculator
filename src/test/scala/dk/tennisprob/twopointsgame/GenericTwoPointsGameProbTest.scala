@@ -65,6 +65,9 @@ class GenericTwoPointsGameProbTest {
   }
 
   @Test def even_chances {
+    assertTuple3(Tuple3(0.21, 0.21, 0.58), GenericTwoPointsGameProb.prob(p1AceProb = 0.4, p1PointProb = 0.5, p2AceProb = 0.4, p2PointProb = 0.5), 0.0001)
+    assertTuple3(Tuple3(0.25, 0.25, 0.5), GenericTwoPointsGameProb.prob(p1AceProb = 0, p1PointProb = 0.5, p2AceProb = 0, p2PointProb = 0.5), 0.0001)
+    assertTuple3(Tuple3(0.1599, 0.1599, 0.68), GenericTwoPointsGameProb.prob(p1AceProb = 0, p1PointProb = 0.8, p2AceProb = 0, p2PointProb = 0.8), 0.0001)
     assertTuple3(Tuple3(0.12039, 0.12039, 0.7592), GenericTwoPointsGameProb.prob(p1AceProb = 0.3, p1PointProb = 0.8, p2AceProb = 0.3, p2PointProb = 0.8), 0.0001)
   }
 
