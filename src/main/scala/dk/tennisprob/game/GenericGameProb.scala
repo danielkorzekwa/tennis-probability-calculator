@@ -6,12 +6,14 @@ import dk.tennisprob.game.deuce.GenericDeuceProb
 object GenericGameProb extends GameProb {
 
   def prob(aceProb: Double, pointProb: Double): Double = {
-   
+
+    val deuceProb = GenericDeuceProb.prob(aceProb, pointProb)
+
     def markovChainPoint(p1Points: Int, p2Points: Int): Double = {
       (p1Points, p2Points) match {
         case (4, _) if p2Points < 3 => 1
         case (_, 4) if p1Points < 3 => 0
-        case (3, 3) => GenericDeuceProb.prob(aceProb, pointProb)
+        case (3, 3) => deuceProb
         case _ => pointProb * markovChainAce(p1Points + 1, p2Points) + (1 - pointProb) * markovChainAce(p1Points, p2Points + 1)
       }
     }
@@ -21,7 +23,7 @@ object GenericGameProb extends GameProb {
       (p1Points, p2Points) match {
         case (4, _) if p2Points < 3 => 1
         case (_, 4) if p1Points < 3 => 0
-        case (3, 3) => GenericDeuceProb.prob(aceProb, pointProb)
+        case (3, 3) => deuceProb
         case _ => aceProb * markovChainAce(p1Points + 1, p2Points) + (1 - aceProb) * markovChainPoint(p1Points, p2Points)
       }
     }
