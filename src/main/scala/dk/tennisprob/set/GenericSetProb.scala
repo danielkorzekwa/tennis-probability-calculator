@@ -5,7 +5,7 @@ import dk.tennisprob.tiebreak.GenericTiebreakProb
 import dk.tennisprob.game.GenericGameProb
 import scala.annotation.tailrec
 
-object GenericSetProb {
+object GenericSetProb extends SetProb {
 
   def prob(p1AceProb: Double, p1PointProb: Double, p2AceProb: Double, p2PointProb: Double): Double = {
 

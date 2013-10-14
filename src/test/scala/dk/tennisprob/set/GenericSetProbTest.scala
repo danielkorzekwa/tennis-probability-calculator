@@ -28,4 +28,11 @@ class GenericSetProbTest {
     assertEquals(0.0001677, GenericSetProb.prob(p1AceProb = 0, p1PointProb = 0.3, p2AceProb = 0, p2PointProb = 0.7), 0.000001)
   }
 
+  @Test def who_serves_first {
+    val p1Prob = GenericSetProb.prob(p1AceProb = 0.5, p1PointProb = 0.6, p2AceProb = 0.1, p2PointProb = 0.7)
+    val p2Prob = GenericSetProb.prob(p1AceProb = 0.1, p1PointProb = 0.7, p2AceProb = 0.5, p2PointProb = 0.6)
+
+    assertEquals(1, p1Prob + p2Prob, 0.0000001)
+  }
+
 }
