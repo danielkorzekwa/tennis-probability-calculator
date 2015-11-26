@@ -74,13 +74,13 @@ class TennisProbFormulaCalcTest {
     assertEquals(0.5, TennisProbFormulaCalc.tiebreakProb(0.4, 0.6), 0.0001)
 
     assertEquals(0.5, TennisProbFormulaCalc.setProb(0.6, 0.4), 0.00001)
-    assertEquals(0.5, TennisProbFormulaCalc.setProb(0.4, 0.6), 0.0)
+    assertEquals(0.5, TennisProbFormulaCalc.setProb(0.4, 0.6), 0.00001)
 
     assertEquals(0.5, TennisProbFormulaCalc.matchProb(0.6, 0.4, THREE_SET_MATCH), 0.00001)
-    assertEquals(0.5, TennisProbFormulaCalc.matchProb(0.4, 0.6, THREE_SET_MATCH), 0.0)
+    assertEquals(0.5, TennisProbFormulaCalc.matchProb(0.4, 0.6, THREE_SET_MATCH), 0.00001)
 
     assertEquals(0.5, TennisProbFormulaCalc.matchProb(0.6, 0.4, FIVE_SET_MATCH), 0.00001)
-    assertEquals(0.5, TennisProbFormulaCalc.matchProb(0.4, 0.6, FIVE_SET_MATCH), 0.0)
+    assertEquals(0.5, TennisProbFormulaCalc.matchProb(0.4, 0.6, FIVE_SET_MATCH), 0.00001)
 
   }
 
